@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ANIMALES!</h1>
+    <h2>Añadir/Cambiar animales</h2>
+    <p>Si es un animal nuevo, añadira el animal</p>
+    <p>Si quieres modificar alguna info del animal, indica su ID y su nueva información</p>
+    <form action="index.php" method="post">
+        <label for="id">ID Animal:</label><br>
+        <input type="text" name="id" id="id" required><br><br>
+        <label for="especie">Especie:</label><br>
+        <input type="text" name="especie" id="especie"><br><br>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" name="nombre" id="nombre"><br><br>
+        <label for="date">Fecha de nacimiento:</label><br>
+        <input type="date" name="date" id="date"><br><br>
+        <label for="peso">Peso:</label><br>
+        <input type="number" name="peso" id="peso"><br><br>
+        <input type="submit" name="addAnimal" id="addAnimal" value="Añadir animal">
+        <input type="submit" name="changeInfo" id="changeInfo" value="Cambiar información">
+    </form>
+    <br><br>
+    <h2>Mostrar animales</h2>
+    <p>Dejar vacio si quiere mostrar todos</p>
+    <form action="index.php" method="get">
+        <label for="id">ID Animal:</label><br>
+        <input type="text" name="id" id="id"><br><br>
+        <input type="submit" name="showAnimal" id="showAnimal" value="Mostrar información">
+    </form>
+    <br><br>
+    <h2>Eliminar animales</h2>
+    <form action="index.php" method="post">
+        <label for="id">ID Animal:</label><br>
+        <input type="text" name="id" id="id"><br><br>
+        <input type="submit" name="deleteAnimal" id="deleteAnimal" value="Eliminar animal">
+    </form>
+</body>
+
+</html>

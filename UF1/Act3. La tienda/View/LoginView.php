@@ -10,6 +10,10 @@ if (isset($_POST['register'])) {
 
     $u_model->addRegister($nick, $email, $pass, $c_pass);
 } elseif (isset($_POST['login'])) {
+    $nick = $_POST['name'];
+    $pass = $_POST['password'];
+
+    $u_model->login($nick, $pass);
 }
 ?>
 

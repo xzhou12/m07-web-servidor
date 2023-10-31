@@ -13,6 +13,20 @@ class UsersModel {
         echo $msg;
     }
 
-}
+    public function login($nick, $pass) {
+        $login = $this->u_controller->login($nick, $pass);
+        if ($login == true) {
+            session_start();
+            $_SESSION['user'] = $nick;
 
-//require_once("View/LoginView.php");
+            if ($nick == 'admin') {
+                header("Location: View/Homepage.php");
+            } else {
+                header("Location: View/Homepage.php");
+            }
+        } else {
+            die('Oops! Ha habido algun error!');
+        }
+    }
+
+}

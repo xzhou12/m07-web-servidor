@@ -22,7 +22,7 @@ class UsersController {
         // Si el usuario no existe, registra al nuevo usuario
         if ($existe == 0) {
             // Comprueba si las contraseñas coinciden
-            if ($pass == $c_pass) {
+            if ($pass = $c_pass) {
                 // Encripta la contraseña
                 $hash = $this->ecryptPassword($pass);
     
@@ -79,6 +79,44 @@ class UsersController {
     */
     public function ecryptPassword($pass) {
         return password_hash($pass, PASSWORD_DEFAULT);
+    }
+
+
+    /*
+    FUNCTION usuarioPassword()
+    Devuelve el password
+    */
+    public function getPassword($nick) {
+        // Consulta SQL que retorna la contraseña del usuario que le pasamos por parametro
+        $sql = 'SELECT contra FROM usuarios WHERE nick = "' . $nick . '"';
+
+        // Ejecuta la sentencia y devuelve el resultado
+        $query = mysqli_query($this->con, $sql);
+        return mysqli_fetch_assoc($query)['contra'];
+    }
+
+    /*
+    */
+    public function login($nick, $pass) {
+        // Comprueba si el usuario ya existe
+        $existe = $this->comprobarUsuarioExiste($nick);
+
+         // Si el usuario existe, procede al login
+         if ($existe != 0) {
+            
+            $password = $this->getPassword($nick);
+            
+            if (password_verify($pass, $password)) {
+                return true;
+            } else {
+               echo '<h1>Oops! Las contraseñas no coinciden</h1>';
+               return null;
+            }
+
+         } else {
+            echo '<h1>El usuario no existe!</h1>';
+            return null;
+         }
     }
    
     

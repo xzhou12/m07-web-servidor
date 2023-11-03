@@ -1,7 +1,8 @@
 <?php
-require_once('Database/database.php');
+require_once('../Database/database.php');
 
-class UsersController {
+
+class AdminUsersController {
     private $con;
 
     /*
@@ -98,28 +99,8 @@ class UsersController {
         return mysqli_fetch_assoc($query)['contra'];
     }
 
-    /*
-    */
-    public function login($nick, $pass) {
-        // Comprueba si el usuario ya existe
-        $existe = $this->comprobarUsuarioExiste($nick);
-
-         // Si el usuario existe, procede al login
-         if ($existe != 0) {
-            
-            $password = $this->getPassword($nick);
-            
-            if (password_verify($pass, $password)) {
-                return true;
-            } else {
-               echo '<h1>Oops! Las contraseñas no coinciden</h1>';
-               return null;
-            }
-
-         } else {
-            echo '<h1>El usuario no existe!</h1>';
-            return null;
-         }
+    public function modifyUser($nick, $email, $pass, $c_pass) {
+        
     }
    
     

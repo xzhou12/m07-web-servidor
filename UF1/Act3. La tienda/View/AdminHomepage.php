@@ -1,18 +1,31 @@
 <?php
-/*
- // Debes asegurarte de iniciar la sesión al principio de tu script
-
-if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') {
-    header("Location: index.php");
-    exit;
-}
-*/
+require_once('../Model/AdminUsersModel.php');
+$adminU_model = new AdminUsersModel;
 
 session_start();
+
+if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'admin') {
+    session_destroy();
+    header("Location: index.php");
+}
 
 if (isset($_POST['confirm_logout'])) {
     session_destroy();
     header('Location: ../index.php');
+} elseif (isset($_POST['register'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $pass = $_POST['password'];
+    $c_pass = $_POST['confirm_password'];
+
+    $adminU_model->addRegister($name, $email, $pass, $c_pass);
+} elseif (isset($_POST['modify'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $pass = $_POST['password'];
+    $c_pass = $_POST['confirm_password'];
+
+    $adminU_model->modifyUser($name, $email, $pass, $c_pass);
 }
 
 ?>
@@ -31,7 +44,7 @@ if (isset($_POST['confirm_logout'])) {
     <style>
         .left {
             position: absolute;
-            right: 2rem;
+            right: 4rem;
             top: 2rem;
         }
 
@@ -62,6 +75,7 @@ if (isset($_POST['confirm_logout'])) {
         });
     </script>
     
+    <h1>Admin Dashboard!</h1>
     <h1>Bienvenido <?php echo $_SESSION['user']?> !</h1>
 
     <div class="left">
@@ -71,8 +85,32 @@ if (isset($_POST['confirm_logout'])) {
         <form method="POST" class="confirm-logout show">
             <input type="submit" value="Confirmar cerrar sesión" name="confirm_logout">
         </form>
-
     </div>
+
+    <br>
+    <br>
+
+    <div>
+        <div>
+            <h2>USUARIOS!</h2>
+            <h3>Añadir/Modificar usuarios</h3>
+            <p>Introduzca el nick del usuario a modificar con su nueva información</p>
+            <form method="POST">
+                <label for="name">Nick:</label><br>
+                <input type="text" name="name" id="name" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" required><br><br>
+                <label for="password">Contraseña:</label><br>
+                <input type="password" name="password" id="password" required><br><br>
+                <label for="confirm_password">Confirma contraseña:</label><br>
+                <input type="password" name="confirm_password" id="confirm_password" required><br><br>
+                <input type="submit" value="Registrar" name="register">
+                <input type="submit" value="Modificar" name="modify">
+            </form>
+        </div>
+    </div>
+
+
     
 
     <br>

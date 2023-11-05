@@ -1,18 +1,28 @@
 <?php
+// Importa el modelo de usuarios.
 require_once('Model/UsersModel.php');
+
+// Crea una instancia del modelo de usuarios.
 $u_model = new UsersModel;
 
+// Verifica si se ha enviado un formulario de registro.
 if (isset($_POST['register'])) {
+    // Captura los datos del formulario de registro.
     $nick = $_POST['name'];
     $email = $_POST['email'];
     $pass = $_POST['password'];
     $c_pass = $_POST['confirm_password'];
 
+    // Llama al modelo para registrar al usuario con los datos proporcionados.
     $u_model->addRegister($nick, $email, $pass, $c_pass);
-} elseif (isset($_POST['login'])) {
+} 
+// Verifica si se ha enviado un formulario de inicio de sesión.
+elseif (isset($_POST['login'])) {
+    // Captura los datos del formulario de inicio de sesión.
     $nick = $_POST['name'];
     $pass = $_POST['password'];
 
+    // Llama al modelo para realizar el inicio de sesión con los datos proporcionados.
     $u_model->login($nick, $pass);
 }
 ?>

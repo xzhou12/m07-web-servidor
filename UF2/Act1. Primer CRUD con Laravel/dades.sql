@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-11-2023 a las 18:52:57
+-- Tiempo de generación: 24-11-2023 a las 20:03:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -49,6 +49,17 @@ CREATE TABLE `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(11, '2014_10_12_000000_create_users_table', 1),
+(12, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(13, '2019_08_19_000000_create_failed_jobs_table', 1),
+(14, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(15, '2023_11_24_165236_create_pokemon_table', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -91,7 +102,7 @@ CREATE TABLE `pokemon` (
   `nombre` varchar(100) NOT NULL,
   `tipo` varchar(100) NOT NULL,
   `size` varchar(30) NOT NULL,
-  `peso` double(4,2) NOT NULL,
+  `peso` double(5,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -171,7 +182,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`

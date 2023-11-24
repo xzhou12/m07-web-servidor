@@ -6,3 +6,5 @@
 * [**Act2. MVC Re-entrega**](https://github.com/xzhou12/m07-web-servidor/tree/UF1/UF1/Act2.%20MVC%20(Re-entrega))
 * [**Validación práctica**](https://github.com/xzhou12/m07-web-servidor/tree/UF1/UF1/Validacion%20practica%20(XiaobinZhou))
 * [**Act3. La tienda**](https://github.com/xzhou12/m07-web-servidor/tree/UF1/UF1/Act3.%20La%20tienda)
+## [**UF2**](https://github.com/xzhou12/m07-web-servidor/tree/UF2/UF2)
+* [**Act1. Primer CRUD con Laravel**](https://github.com/xzhou12/m07-web-servidor/tree/UF2/UF2/Act1.%20Primer%20CRUD%20con%20Laravel)

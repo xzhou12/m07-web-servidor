@@ -12,3 +12,4 @@
 * [**Pt Final**](https://github.com/xzhou12/m07-web-servidor/tree/UF2/UF2/Pt%20Final)
 ## [**UF3**](https://github.com/xzhou12/m07-web-servidor/tree/UF3/UF3)
 * [**Práctica1. Uso de api**](https://github.com/xzhou12/m07-web-servidor/tree/UF3/UF3/Pr%C3%A1ctica1%20-%20Uso%20de%20api)
+* [**UF3 Validación**](https://github.com/xzhou12/m07-web-servidor/tree/UF3/UF3/UF3Validaci%C3%B3n)
